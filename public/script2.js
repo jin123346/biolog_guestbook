@@ -156,16 +156,16 @@ function addSingleBubble(entry) {
         return; // 이미 1개가 있으면 추가하지 않음
     }
     
-    const limeGreenVariations = [
-        { bg: 'rgba(144, 238, 144, 0.75)', border: 'rgba(50, 205, 50, 0.7)' },
-        { bg: 'rgba(152, 251, 152, 0.75)', border: 'rgba(124, 252, 0, 0.7)' },
-        { bg: 'rgba(173, 255, 47, 0.75)', border: 'rgba(154, 205, 50, 0.7)' },
-        { bg: 'rgba(127, 255, 0, 0.75)', border: 'rgba(50, 205, 50, 0.7)' },
-        { bg: 'rgba(154, 205, 50, 0.75)', border: 'rgba(124, 252, 0, 0.7)' },
-        { bg: 'rgba(50, 205, 50, 0.75)', border: 'rgba(34, 139, 34, 0.7)' }
+    const pastelStickyColors = [
+        { bg: 'rgba(255, 249, 196, 0.92)', border: 'rgba(253, 216, 53, 0.85)' },   // 밝은 노랑
+        { bg: 'rgba(255, 236, 179, 0.92)', border: 'rgba(255, 213, 79, 0.85)' },   // 베이지옐로우
+        { bg: 'rgba(255, 205, 210, 0.94)', border: 'rgba(255, 138, 128, 0.85)' },  // 연핑크
+        { bg: 'rgba(255, 224, 178, 0.92)', border: 'rgba(255, 183, 77, 0.84)' },   // 살구
+        { bg: 'rgba(225, 245, 254, 0.94)', border: 'rgba(128, 222, 234, 0.85)' },  // 하늘색
+        { bg: 'rgba(240, 244, 195, 0.94)', border: 'rgba(197, 225, 165, 0.85)' }   // 연두색
     ];
     
-    const colorSet = limeGreenVariations[Math.floor(Math.random() * limeGreenVariations.length)];
+    const colorSet = pastelStickyColors[Math.floor(Math.random() * pastelStickyColors.length)];
     
     const topSectionEl = document.querySelector('.top-section');
     const topSectionRect = topSectionEl ? topSectionEl.getBoundingClientRect() : null;
@@ -324,13 +324,13 @@ function createFloatingBubbles(entries) {
     const availableWidth = window.innerWidth - 40;
     const rowHeight = Math.max(BUBBLE_HEIGHT + 30, availableHeight / numRows);
     
-    const limeGreenVariations = [
-        { bg: 'rgba(144, 238, 144, 0.75)', border: 'rgba(50, 205, 50, 0.7)' },
-        { bg: 'rgba(152, 251, 152, 0.75)', border: 'rgba(124, 252, 0, 0.7)' },
-        { bg: 'rgba(173, 255, 47, 0.75)', border: 'rgba(154, 205, 50, 0.7)' },
-        { bg: 'rgba(127, 255, 0, 0.75)', border: 'rgba(50, 205, 50, 0.7)' },
-        { bg: 'rgba(154, 205, 50, 0.75)', border: 'rgba(124, 252, 0, 0.7)' },
-        { bg: 'rgba(50, 205, 50, 0.75)', border: 'rgba(34, 139, 34, 0.7)' }
+    const pastelStickyColors = [
+        { bg: 'rgba(255, 249, 196, 0.92)', border: 'rgba(253, 216, 53, 0.85)' },
+        { bg: 'rgba(255, 236, 179, 0.92)', border: 'rgba(255, 213, 79, 0.85)' },
+        { bg: 'rgba(255, 205, 210, 0.94)', border: 'rgba(255, 138, 128, 0.85)' },
+        { bg: 'rgba(255, 224, 178, 0.92)', border: 'rgba(255, 183, 77, 0.84)' },
+        { bg: 'rgba(225, 245, 254, 0.94)', border: 'rgba(128, 222, 234, 0.85)' },
+        { bg: 'rgba(240, 244, 195, 0.94)', border: 'rgba(197, 225, 165, 0.85)' }
     ];
     
     selectedEntries.forEach((entry, index) => {
@@ -371,7 +371,7 @@ function createFloatingBubbles(entries) {
             const randomX = rowStartX + zigzagOffset + colIndex * (BUBBLE_WIDTH + gapX) + (Math.random() * 12 - 6);
             
             const randomSize = 1.0;
-            const colorSet = limeGreenVariations[Math.floor(Math.random() * limeGreenVariations.length)];
+            const colorSet = pastelStickyColors[Math.floor(Math.random() * pastelStickyColors.length)];
             const randomDelay = index * 0.1;
             const randomDuration = 6;
             
