@@ -1,0 +1,41 @@
+========================================
+전자 방명록 데이터 저장 위치
+========================================
+
+현재 저장 위치:
+프로젝트 폴더/data/guestbook.json
+
+예시:
+C:\workspace\전자방명록\data\guestbook.json
+
+========================================
+저장 위치 변경 방법
+========================================
+
+server.js 파일의 다음 부분을 수정하세요:
+
+현재 코드 (17-18번째 줄):
+const DATA_DIR = path.join(__dirname, 'data');
+const GUESTBOOK_FILE = path.join(DATA_DIR, 'guestbook.json');
+
+변경 예시 1: 다른 폴더에 저장
+const DATA_DIR = 'C:\\방명록데이터';
+const GUESTBOOK_FILE = path.join(DATA_DIR, 'guestbook.json');
+
+변경 예시 2: 바탕화면에 저장
+const DATA_DIR = path.join(require('os').homedir(), 'Desktop', '방명록데이터');
+const GUESTBOOK_FILE = path.join(DATA_DIR, 'guestbook.json');
+
+변경 예시 3: 문서 폴더에 저장
+const DATA_DIR = path.join(require('os').homedir(), 'Documents', '전자방명록');
+const GUESTBOOK_FILE = path.join(DATA_DIR, 'guestbook.json');
+
+========================================
+주의사항
+========================================
+
+1. 폴더 경로에 한글이 있어도 됩니다
+2. 변경 후 서버를 재시작해야 합니다
+3. 기존 데이터를 새 위치로 복사해야 합니다
+4. 폴더가 없으면 자동으로 생성됩니다
+

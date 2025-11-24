@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전자 방명록 - 바이오기술의 미래</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 제목 영역 (최상단) -->
+    <div class="title-header">
+        <!--
+        <h1 class="main-title">바이오기술의 미래</h1>
+        <p class="subtitle-text">Bio Technology, The Future</p>
+        -->
+        <img src="BioLog2.PNG" alt="바이오 로그 타이틀" class="title-logo" />
+    </div>
+    
+    <!-- 상단 어두운 영역 -->
+    <div class="top-section">
+        <div class="bio-background">
+            <div class="bio-image bio-image-1"></div>
+            <div class="bio-image bio-image-2"></div>
+        </div>
+        
+        <!-- 떠다니는 이미지 -->
+        <!-- <div id="floatingImages" class="floating-images">
+            <div class="floating-image" style="background-image: url('/IMG_6114.JPG');"></div>
+            <div class="floating-image" style="background-image: url('/IMG_6116.JPG');"></div>
+            <div class="floating-image" style="background-image: url('/IMG_6114.JPG');"></div>
+            <div class="floating-image" style="background-image: url('/IMG_6116.JPG');"></div>
+        </div> -->
+        
+        <!-- 떠다니는 말풍선 컨테이너 -->
+        <div id="floatingBubbles" class="floating-bubbles"></div>
+    </div>
+    
+    <!-- 구분선 -->
+    <div class="divider">
+        <div class="divider-triangle"></div>
+    </div>
+    
+    <!-- 하단 밝은 영역 (입력 폼) -->
+    <div class="bottom-section">
+        <div class="form-container">
+            <div class="question-area">
+                <h2 class="question-text">우리의 바이오기술은 앞으로 어떻게 발전할까요?</h2>
+                <p class="question-english">How will our biotechnology develop in the future?</p>
+            </div>
+            
+            <form id="guestbookForm" class="input-form">
+                <div class="instruction">
+                    <span class="instruction-text">엔터를 누르면 작성한 내용이 전송됩니다.</span>
+                    <span class="enter-hint">ENTER ↵</span>
+                </div>
+                <textarea 
+                    id="answer" 
+                    name="answer" 
+                    placeholder="여러분이 생각하는 바이오기술의 미래는 어떤 모습일까요?"
+                    rows="4"
+                    required
+                    autofocus
+                ></textarea>
+            </form>
+        </div>
+        
+        <!-- 하단 방명록 목록 (숨김) -->
+        <section class="entries-section" style="display: none;">
+            <div id="entriesContainer" class="entries-container">
+                <p class="loading">로딩 중...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
+
