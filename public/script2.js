@@ -18,7 +18,7 @@ const MIN_GAP_X = 35;
 const MAX_GAP_X = 85;
 const HEADER_MAX_HEIGHT = 200;
 const HEADER_FALLBACK_BOTTOM = 150;
-const START_Y_PADDING = 25;
+const START_Y_PADDING = 5; /* 헤더와 버블 사이 간격 더 줄임 */
 
 // Enter 키로 제출 (Shift+Enter는 줄바꿈)
 if (answerInput) {
@@ -170,7 +170,7 @@ function addSingleBubble(entry) {
     const topSectionEl = document.querySelector('.top-section');
     const topSectionRect = topSectionEl ? topSectionEl.getBoundingClientRect() : null;
     
-    const startY = getEffectiveHeaderBottom() + START_Y_PADDING;
+    const startY = 40; /* top에서 40px 위치부터 시작 */
     const endY = topSectionRect ? topSectionRect.bottom - 50 : window.innerHeight * 0.6;
     const availableHeight = endY - startY;
     const availableWidth = window.innerWidth - 40;
@@ -198,9 +198,9 @@ function addSingleBubble(entry) {
     
     // Y 위치: 아래에서 위로 (최신이 가장 아래)
     const baseY = startY + actualRowIndex * rowHeight;
-    const randomYOffset = Math.min((rowHeight - bubbleHeight) * 0.25, 35);
+    const randomYOffset = Math.min((rowHeight - BUBBLE_HEIGHT) * 0.25, 35);
     let randomY = baseY + Math.random() * Math.max(randomYOffset, 10);
-    const maxY = endY - bubbleHeight;
+    const maxY = endY - BUBBLE_HEIGHT;
     if (randomY > maxY) {
         randomY = Math.max(baseY, maxY);
     }
@@ -214,7 +214,7 @@ function addSingleBubble(entry) {
     const rowStartX = Math.max(30, (window.innerWidth - rowContentWidth) / 2);
     
     const zigzagOffset = (rowIndex % 2 === 1) ? gapX / 2 : 0;
-    const randomX = rowStartX + zigzagOffset + colIndex * (bubbleWidth + gapX) + (Math.random() * 16 - 8);
+    const randomX = rowStartX + zigzagOffset + colIndex * (BUBBLE_WIDTH + gapX) + (Math.random() * 16 - 8);
     
     // 기존 말풍선들을 위로 이동 (한 행씩 위로)
     existingBubblesList.forEach((bubble) => {
@@ -318,7 +318,7 @@ function createFloatingBubbles(entries) {
     const topSectionEl = document.querySelector('.top-section');
     const topSectionRect = topSectionEl ? topSectionEl.getBoundingClientRect() : null;
     
-    const startY = getEffectiveHeaderBottom() + START_Y_PADDING;
+    const startY = 40; /* top에서 40px 위치부터 시작 */
     const endY = topSectionRect ? topSectionRect.bottom - 50 : window.innerHeight * 0.6;
     const availableHeight = endY - startY;
     const availableWidth = window.innerWidth - 40;

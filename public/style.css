@@ -22,10 +22,10 @@ body {
 .top-section {
     position: relative;
     width: 100%;
-    height: calc(100vh - 150px - 14vh - 30px); /* 전체 높이 - 제목(150px) - 하단 영역(14vh) - divider(30px) */
+    height: calc(12 / 16 * 100vh); /* 16:9 비율 기준, 16 단위 중 10.5 단위 (약 65.6%) */
     min-height: 400px;
-    margin-top: 150px; /* 제목 영역 공간 확보 */
-    margin-bottom: calc(14vh + 30px); /* 하단 영역 + divider 공간 확보 */
+    margin-top: calc(1 / 16 * 100vh); /* 제목 영역 공간 확보 (1.5 단위) */
+    margin-bottom: calc(2.5 / 16 * 100vh + 0.5 / 16 * 100vh); /* 하단 영역(3.5 단위) + divider(0.5 단위) */
     background: 
         linear-gradient(135deg, #0a1929 0%, #0d1b2a 50%, #0a1628 100%);
     overflow: hidden;
@@ -42,9 +42,9 @@ body {
     z-index: 0;
     overflow: hidden;
     background-image: url('/IMG_6114.JPG');
-    background-size: auto 100%;
+    background-size: cover;
     background-position: center;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     opacity: 0.3;
     filter: grayscale(0.4) brightness(0.5);
 }
@@ -568,6 +568,12 @@ main {
     text-align: center;
     z-index: 100;
     padding: 30px 20px;
+    height: calc(1.5 / 16 * 100vh); /* 16:9 비율 기준, 16 단위 중 1.5 단위 (약 9.4%) */
+    min-height: 120px;
+    max-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(180deg, 
         rgba(10, 25, 41, 0.95) 0%, 
         rgba(10, 25, 41, 0.85) 70%,
@@ -614,14 +620,23 @@ main {
     font-size: 0.95em;
 }
 
+.title-header img.title-logo {
+    max-height: 130px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 /* 구분선 */
 .divider {
     position: fixed;
-    bottom: 14vh; /* bottom-section 높이만큼 위에 */
+    bottom: calc(2.5 / 16 * 100vh); /* 하단 영역(3.5 단위) 위에 */
     left: 0;
     right: 0;
     width: 100%;
-    height: 30px;
+    height: calc(0.5 / 16 * 100vh); /* 16:9 비율 기준, 16 단위 중 0.5 단위 (약 3.1%) */
+    min-height: 25px;
+    max-height: 35px;
     background: #f5f5dc;
     z-index: 16; /* bottom-section(15)보다 위에 */
 }
@@ -648,8 +663,9 @@ main {
     left: 0;
     right: 0;
     width: 100%;
-    height: 14vh;
-    max-height: 20vh; /* 최대 높이 제한 */
+    height: calc(2.5 / 16 * 100vh); /* 16:9 비율 기준, 16 단위 중 3.5 단위 (약 21.9%) */
+    min-height: 200px;
+    max-height: calc(4 / 16 * 100vh); /* 최대 4 단위 */
     background: #f5f5dc;
     padding: 20px;
     z-index: 15;
@@ -658,7 +674,7 @@ main {
 }
 
 .form-container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
     width: 100%;
 }
@@ -669,7 +685,7 @@ main {
 }
 
 .question-text {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #2c3e50;
     margin-bottom: 10px;
     font-weight: 700;
@@ -677,7 +693,7 @@ main {
 }
 
 .question-english {
-    font-size: 1.1em;
+    font-size: 2.4em;
     color: #5a6c7d;
     font-style: italic;
 }
@@ -691,7 +707,7 @@ main {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    font-size: 0.95em;
+    font-size: 1.15em;
     color: #5a6c7d;
 }
 
@@ -702,22 +718,22 @@ main {
 .enter-hint {
     background: #2c3e50;
     color: white;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 5px;
     font-weight: 600;
-    font-size: 0.9em;
+    font-size: 1.1em;
 }
 
 .input-form textarea {
     width: 100%;
-    padding: 15px;
+    padding: 18px;
     border: 2px solid #ddd;
     border-radius: 12px;
-    font-size: 1em;
+    font-size: 2em;
     font-family: inherit;
     resize: vertical;
-    min-height: 100px;
-    max-height: 200px;
+    min-height: 110px;
+    max-height: 220px;
     background: white;
     color: #2c3e50;
     transition: all 0.3s ease;
@@ -752,13 +768,15 @@ main {
     cursor: pointer;
     max-width: 380px;
     min-width: 300px;
-    min-height: 200px;
-    max-height: 380px;
+    height: 280px; /* 포스트잇처럼 일정한 높이 */
+    min-height: 280px;
+    max-height: 280px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow: hidden;
+    overflow-y: auto; /* 내용이 넘치면 스크롤 */
+    overflow-x: hidden;
     border-radius: 30px;
     box-shadow: none;
     backdrop-filter: blur(2px); /* 배경 이미지가 더 잘 보이도록 */
@@ -1083,6 +1101,92 @@ main {
 }
 
 /* 반응형 디자인 */
+
+/* 24인치 세로 화면 최적화 (1080x1920) */
+@media (min-width: 1080px) and (min-height: 1920px) and (max-width: 1200px) {
+    .title-header {
+        padding: 25px 20px;
+    }
+    
+    .title-header .main-title {
+        font-size: 2.2em;
+    }
+    
+    .title-header img.title-logo {
+        max-height: 120px;
+        width: auto;
+    }
+    
+    .question-text {
+        font-size: 2.5em;
+        line-height: 1.5;
+    }
+    
+    .question-english {
+        font-size: 2em;
+    }
+    
+    .bottom-section {
+        height: 12vh;
+        max-height: 18vh;
+        padding: 18px;
+    }
+    
+    .input-form textarea {
+        font-size: 1.3em;
+        padding: 18px;
+        min-height: 110px;
+        max-height: 200px;
+    }
+    
+    .instruction {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+    
+    .enter-hint {
+        font-size: 1.15em;
+        padding: 6px 14px;
+    }
+    
+    .title-header {
+        height: calc(1.5 / 16 * 100vh);
+    }
+    
+    .top-section {
+        height: calc(11.7 / 16 * 100vh);
+        margin-top: calc(1.5 / 16 * 100vh);
+        margin-bottom: calc(3.5 / 16 * 100vh + 0.5 / 16 * 100vh);
+    }
+    
+    .divider {
+        bottom: calc(3.5 / 16 * 100vh);
+        height: calc(0.5 / 16 * 100vh);
+    }
+    
+    .bottom-section {
+        height: calc(3.5 / 16 * 100vh);
+        max-height: calc(4 / 16 * 100vh);
+    }
+    
+    .floating-bubble {
+        max-width: 400px;
+        min-width: 320px;
+        height: 280px; /* 포스트잇처럼 일정한 높이 */
+        min-height: 280px;
+        max-height: 280px;
+        padding: 28px;
+    }
+    
+    .bubble-text {
+        font-size: 1.5em;
+    }
+    
+    .bubble-name {
+        font-size: 1.2em;
+    }
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 2em;
@@ -1117,12 +1221,14 @@ main {
     .floating-bubble {
         max-width: 340px;
         min-width: 240px;
-        min-height: 180px;
-        max-height: 320px;
+        height: 280px; /* 포스트잇처럼 일정한 높이 */
+        min-height: 280px;
+        max-height: 280px;
         padding: 22px;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     
     .bubble-text {
