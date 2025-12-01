@@ -22,9 +22,9 @@ body {
 .top-section {
     position: relative;
     width: 100%;
-    height: calc(12 / 16 * 100vh); /* 16:9 비율 기준, 16 단위 중 10.5 단위 (약 65.6%) */
+    height: calc(22 / 16 * 100vh); /* 16:9 비율 기준, 16 단위 중 10.5 단위 (약 65.6%) */
     min-height: 400px;
-    margin-top: calc(1 / 16 * 100vh); /* 제목 영역 공간 확보 (1.5 단위) */
+    margin-top: calc(0.8 / 16 * 100vh); /* 제목 영역 공간 확보 (1.5 단위) */
     margin-bottom: calc(2.5 / 16 * 100vh + 0.5 / 16 * 100vh); /* 하단 영역(3.5 단위) + divider(0.5 단위) */
     background: 
         linear-gradient(135deg, #0a1929 0%, #0d1b2a 50%, #0a1628 100%);
@@ -574,10 +574,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, 
+    /* background: linear-gradient(180deg, 
         rgba(10, 25, 41, 0.95) 0%, 
         rgba(10, 25, 41, 0.85) 70%,
-        transparent 100%);
+        transparent 100%); */
     backdrop-filter: blur(10px);
 }
 
@@ -686,15 +686,16 @@ main {
 
 .question-text {
     font-size: 3em;
-    color: #2c3e50;
+    color: #000000;
     margin-bottom: 10px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.6;
 }
 
 .question-english {
     font-size: 2.4em;
-    color: #5a6c7d;
+    color: #272727;
+    font-weight: 500;
     font-style: italic;
 }
 
@@ -707,16 +708,18 @@ main {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    font-size: 1.15em;
+    font-size: larger;
     color: #5a6c7d;
 }
 
 .instruction-text {
     flex: 1;
+    color: black;
+    font-weight: 500;
 }
 
 .enter-hint {
-    background: #2c3e50;
+    background: #020303;
     color: white;
     padding: 6px 14px;
     border-radius: 5px;
@@ -766,11 +769,11 @@ main {
     position: absolute;
     pointer-events: auto;
     cursor: pointer;
-    max-width: 380px;
-    min-width: 300px;
-    height: 280px; /* 포스트잇처럼 일정한 높이 */
-    min-height: 280px;
-    max-height: 280px;
+    max-width: 440px;
+    min-width: 360px;
+    height: 320px; /* 포스트잇처럼 일정한 높이 */
+    min-height: 320px;
+    max-height: 320px;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -838,7 +841,7 @@ main {
 }
 
 .bubble-text {
-    font-size: 1.45em;
+    font-size: 2.2em;
     line-height: 1.5;
     word-wrap: break-word;
     text-shadow: 
@@ -1170,11 +1173,11 @@ main {
     }
     
     .floating-bubble {
-        max-width: 400px;
-        min-width: 320px;
-        height: 280px; /* 포스트잇처럼 일정한 높이 */
-        min-height: 280px;
-        max-height: 280px;
+        max-width: 460px;
+        min-width: 380px;
+        height: 320px; /* 포스트잇처럼 일정한 높이 */
+        min-height: 320px;
+        max-height: 320px;
         padding: 28px;
     }
     
@@ -1219,11 +1222,11 @@ main {
     }
     
     .floating-bubble {
-        max-width: 340px;
-        min-width: 240px;
-        height: 280px; /* 포스트잇처럼 일정한 높이 */
-        min-height: 280px;
-        max-height: 280px;
+        max-width: 400px;
+        min-width: 300px;
+        height: 320px; /* 포스트잇처럼 일정한 높이 */
+        min-height: 320px;
+        max-height: 320px;
         padding: 22px;
         display: flex;
         flex-direction: column;

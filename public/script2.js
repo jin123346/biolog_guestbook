@@ -12,8 +12,8 @@ let resizeListenerAttached = false;
 // 말풍선 레이아웃 설정 (2,3,2,3,2)
 const ROW_PATTERN = [2, 3, 2, 3, 2];
 const MAX_BUBBLE_COUNT = ROW_PATTERN.reduce((sum, count) => sum + count, 0); // 12개
-const BUBBLE_WIDTH = 360;
-const BUBBLE_HEIGHT = 280;
+const BUBBLE_WIDTH = 420;
+const BUBBLE_HEIGHT = 320;
 const MIN_GAP_X = 35;
 const MAX_GAP_X = 85;
 const HEADER_MAX_HEIGHT = 200;
