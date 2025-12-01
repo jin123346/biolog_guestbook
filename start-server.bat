@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 REM 전자 방명록 로컬 서버 자동 실행 스크립트
 REM Node.js가 설치되어 있어야 합니다
 
